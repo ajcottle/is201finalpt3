@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coin Toss Game</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #0f4c81;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    z-index: 9999;
+}
+
+.logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #4facfe;
+}
+
+/* BODY FIXED */
+body {
+    margin: 0;
+    padding-top: 80px;
+    background: linear-gradient(135deg, #0f4c81, #4facfe);
+}
+
+/* GAME CONTAINER */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 300px;
+    margin: 100px auto; /* centers it */
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #0f4c81;
+}
+
+/* COIN */
+.coin {
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.side {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    backface-visibility: hidden;
+}
+
+.heads {
+    background: gold;
+    color: black;
+}
+
+.tails {
+    background: silver;
+    color: black;
+    transform: rotateX(180deg);
+}
+
+/* ANIMATIONS */
+@keyframes spinHeads {
+    0% { transform: rotateX(0); }
+    100% { transform: rotateX(2160deg); }
+}
+
+@keyframes spinTails {
+    0% { transform: rotateX(0); }
+    100% { transform: rotateX(1980deg); }
+}
+
+/* BUTTON */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #0f4c81;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #08345c;
+}
+
+button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+/* RESULT */
+#result {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0f4c81;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#result.show {
+    opacity: 1;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">AJ's Site</div>
+    <ul class="nav-links">
+        <li><a href="ai-game.html">AI Game</a></li>
+        <li><a href="scratch.html">Scratch</a></li>
+        <li><a href="resume.html">Resume</a></li>
+    </ul>
+</nav>
+
+<!-- GAME -->
+<div class="container">
+    <h1>Coin Toss</h1>
+
+    <div class="coin" id="coin">
+        <div class="side heads">H</div>
+        <div class="side tails">T</div>
+    </div>
+
+    <p id="result"></p>
+
+    <button id="flipBtn">Flip Coin</button>
+</div>
+
+<script>
+const coin = document.getElementById("coin");
+const button = document.getElementById("flipBtn");
+const result = document.getElementById("result");
+
+button.addEventListener("click", flipCoin);
+
+function flipCoin() {
+    button.disabled = true;
+    result.classList.remove("show");
+
+    let random = Math.random();
+
+    if (random < 0.5) {
+        coin.style.animation = "spinHeads 2.5s forwards";
+        setTimeout(() => {
+            result.textContent = "Heads!";
+            result.classList.add("show");
+            button.disabled = false;
+        }, 2500);
+    } else {
+        coin.style.animation = "spinTails 2.5s forwards";
+        setTimeout(() => {
+            result.textContent = "Tails!";
+            result.classList.add("show");
+            button.disabled = false;
+        }, 2500);
+    }
+}
+</script>
+
+</body>
+</html>
