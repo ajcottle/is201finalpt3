@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #0f4c81;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    z-index: 1000;
+}
+
+.logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #4facfe;
+}
+
+/* BODY */
+body {
+    padding-top: 80px;
+    background: linear-gradient(135deg, #0f4c81, #4facfe);
+}
+
+/* MAIN CONTENT */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+    color: #0f4c81;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 30px;
+    color: #0f4c81;
+}
+
+p {
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+a {
+    color: #0f4c81;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">AJ's Site</div>
+    <ul class="nav-links">
+        <li><a href="aigame.html">AI Game</a></li>
+        <li><a href="scratch.html">Scratch</a></li>
+        <li><a href="resume.html">Resume</a></li>
+    </ul>
+</nav>
+
+<!-- RESUME -->
+<div class="container">
+
+    <h1>AJ Cottle</h1>
+    <p>
+        Provo, UT · (385) 321-7888 · 
+        <a href="mailto:ajcottle13@gmail.com">ajcottle13@gmail.com</a>
+    </p>
+
+    <h2>About</h2>
+    <p>
+        Motivated and dependable individual with strong communication, organization, and problem-solving skills.
+    </p>
+
+    <h2>Experience</h2>
+    <p>Senior Web Developer - Intelitec Solutions</p>
+
+    <h2>Education</h2>
+    <p>University of Colorado Boulder</p>
+
+    <h2>Skills</h2>
+    <p>HTML, CSS, JavaScript</p>
+
+    <h2>Interests</h2>
+    <p>Outdoor activities, technology, and problem-solving</p>
+
+    <h2>Awards</h2>
+    <p>All-State Volleyball Award</p>
+
+</div>
+
+</body>
+</html>
